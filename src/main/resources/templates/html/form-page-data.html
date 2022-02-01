@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <meta charset="ISO-8859-1">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
+        <title>BeLive Hotels</title>
+    </head>
+    <body>
+
+        <h1 class="text-primary text-center">
+            BeLive Hotels
+        </h1>
+
+        <h2 class="text-center">Datos Usuario Registrado</h2>
+
+        <table class="table">
+            <thead>
+                <tr>
+                <tr>
+                    <th scope="col">Nombre</th>
+                    <th scope="col">Apellido</th>
+                    <th scope="col">Telefono</th>
+                    <th scope="col">E-mail</th>
+                    <th scope="col">Fecha Nacimiento</th>
+                    <th scope="col">Clave</th>
+                </tr>
+                </tr>
+            </thead>
+            <tbody>
+            <td th:text="${user.firstName}"></td>
+            <td th:text="${user.lastName}"></td>
+            <td th:text="${user.telephone}"></td>
+            <td th:text="${user.email}"></td>
+            <td th:text="${user.birthday}"></td>
+            <td th:text="${user.password}"></td>
+        </tbody>
+    </table>
+</body>
+</html>
+
+
+
+

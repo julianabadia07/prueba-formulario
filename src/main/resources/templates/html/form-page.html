@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="es" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <meta charset="UTF-8">
+            <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
+                <title>BeLive Hotels</title>
+                <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+                <script src="https://cdn.jsdelivr.net/jquery.validation/1.16.0/jquery.validate.min.js"></script>
+                <script src="https://cdn.jsdelivr.net/jquery.validation/1.16.0/additional-methods.min.js"></script>
+                <script>
+                    $().ready(function(){
+
+                    $("#myForm").validate({
+                    // in 'rules' user have to specify all the constraints for respective fields
+                    rules : {
+                    firstName : "required",
+                    lastName : "required",
+                    password : {
+                    required : true,
+                    minlength : 5
+                    },
+                    confirmPassword : {
+                    required : true,
+                    minlength : 5,
+                    equalTo : "#password" 
+                    },
+                    email : {
+                    required : true,
+                    email : true
+                    },
+                    telephone : {
+                    required : true,
+                    number : true,
+                    },
+                    birthday : {
+                    required : true,
+                    },                  
+
+
+                    },
+
+                    messages : {
+                    firstName : "Por favor, ingrese el nombre.",
+                    lastName : "Por favor, ingrese el apellido",
+                    password : {
+                    required : "Por favor, ingrese la clave",
+                    minlength : "La clave debe constar de al menos 5 caracteres."
+                    },
+                    confirmPassword : {
+                    required : "Por favor, ingrese la clave ",
+                    minlength : "La clave debe constar de al menos 5 caracteres.",
+                    equalTo : "Por favor ingrese la misma clave."
+                    },
+                    email : {
+                    required : "Por favor, ingrese el email.",
+                    email : "Formato no valido para email.",
+                    },
+                    telephone : {
+                    required : "Por favor, ingrese el telefono.",
+                    number : "Solo se permiten numeros.",
+
+                    },
+                    birthday : {
+                    required : "Por favor, ingrese fecha de nacimiento.",
+                    },
+
+                    }
+                    });
+                    });
+
+                </script>
+                </head>
+                <title>Registrar Usuario</title>
+                </head>
+                <body>
+                    <h1 class="text-primary text-center">
+                        BeLive Hotels
+                    </h1>
+
+                    <h2 class="text-center">Registrar Usuario</h2>
+
+                    <div class="container">
+                        <div class="row mt-5">
+                            <div class="col-12">
+                                <div class="card">
+                                    <div class="card-body">
+                                        <form id="myForm" action="#" th:action="@{/registrar}" method="post" th:object="${user}">
+                                            <div class="row g-3">
+                                                <div class="form-group col-md-3">
+                                                    <label>Nombre:</label>
+                                                    <input type="text" placeholder="Nombre"  class="form-control" th:field="*{firstName}" id="firstName"  /><br/>
+                                                </div>
+                                                <div class="form-group col-md-3">
+                                                    <label>Apellido:</label>
+                                                    <input type="text" placeholder="Apellido"  class="form-control"  th:field="*{lastName}" id="lastName" /><br/>
+                                                </div>
+                                                <div class="form-group col-md-3">
+                                                    <label>Telefono:</label>
+                                                    <input type="text" placeholder="Telefono"  class="form-control" th:field="*{telephone}" /><br/>
+                                                </div>
+
+                                                <div class="form-group col-md-3">
+                                                    <label>E-mail:</label>
+                                                    <input type="text" placeholder="E-mail"  class="form-control" th:field="*{email}"   /><br/>
+                                                </div>
+                                                <div class="form-group col-md-3">
+                                                    <label>Fecha nacimiento:</label>
+                                                    <input type="date" class="form-control" th:field="*{birthday}" /><br/>
+
+                                                </div>
+                                                <div class="form-group col-md-3">
+                                                    <label>Contraseña:</label>
+                                                    <input type="password" placeholder="Clave"  class="form-control" th:field="*{password}"/><br/>
+
+                                                </div>
+                                                <div class="form-group col-md-3">
+                                                    <label>Confirmar Contraseña:</label>
+                                                    <input type="password" placeholder="Confirmar clave"  class="form-control" th:field="*{confirmPassword}" /><br/>
+                                                </div>
+                                            </div>
+                                            <div class="row m-3 form-group">
+                                                <input class="btn btn-primary" type="Submit" value="Registrar usuario" >
+                                            </div>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </body>
+                </html>
