@@ -15,4 +15,4 @@ mvn spring-boot:run
 Se realiza proyecto de prueba utilizando:
  * Tymeleaf como motor de plantillas
  * Uso de JQuery validation
- * Boostrap
+ * Bootstrap
